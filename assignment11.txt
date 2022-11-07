@@ -1,0 +1,229 @@
+1. Write a function to calculate LCM of two numbers. (TSRS)
+#include<stdio.h>
+int lcm(int,int);
+int main()
+{
+    int a,b;
+    printf("\n enter the value of a and b");
+    scanf("%d%d",&a,&b);
+    printf("\n LCM=%d",lcm(a,b));   
+   return 0;
+}
+int lcm(int a,int b)
+{
+    int i,hcf=1,lcm;
+    for(i=2; i<=a && i<=b; i++)
+    {
+        if(a%i==0 && b%i==0)
+        hcf=i;
+    }
+    lcm=(a*b)/hcf;
+    return lcm;
+}
+
+2. Write a function to calculate HCF of two numbers. (TSRS)
+#include<stdio.h>
+int hcf(int,int);
+int main()
+{
+    int a,b;
+    printf("\n enter the value of a and b");
+    scanf("%d%d",&a,&b);
+    printf("\n HCF=%d",hcf(a,b));   
+   return 0;
+}
+int hcf(int a,int b)
+{
+    int i,hcf=1;
+    for(i=2; i<=a && i<=b; i++)
+    {
+        if(a%i==0 && b%i==0)
+        hcf=i;
+    }
+    return hcf;
+}
+
+3. Write a function to check whether a given number is Prime or not. (TSRS)
+#include<stdio.h>
+int prime(int);
+int main()
+{
+    int a,b;
+    printf("\n enter the value of a" );
+    scanf("%d",&a);
+    b=prime(a);
+    if(b==1)
+    printf("\n prime no");
+    else
+    printf("\n not a prime no");
+   return 0;
+}
+int prime(int a)
+{
+    int i,flag=0;
+    for(i=1;i<=a/2;i++)
+    {
+        if(a%i==0)
+        flag++;
+    }
+    return flag;
+}
+4. Write a function to find the next prime number of a given number. (TSRS)
+5. Write a function to print first N prime numbers (TSRN)
+#include<stdio.h>
+void primenum(int);
+int main()
+{
+    int x;
+    printf("\n enter a number");
+    scanf("%d",&x);
+    primenum(x);
+    return 0;
+
+}
+void primenum(int x)
+{
+    int i,count=0,j;
+    for(i=2;i<=x;i++)
+    {
+        count=0;
+        for(j=1;j<=i/2;j++)
+        {
+            if(i%j==0)
+            count++;
+
+        }
+        if(count==1)
+        printf("%d ",i);
+    }
+}
+    
+6. Write a function to print all Prime numbers between two given numbers. (TSRN)
+#include<stdio.h>
+void primenum(int,int);
+int main()
+{
+    int a,b;
+    printf("\n enter two number");
+    scanf("%d%d",&a,&b);
+    primenum(a,b);
+    return 0;
+
+}
+void primenum(int a,int b)
+{
+    int i,count=0,j;
+    printf("\n prime num bet %d and %d is.....\n",a,b);
+    for(i=a+1;i<b;i++)
+    {
+        count=0;
+        for(j=1;j<=i/2;j++)
+        {
+            if(i%j==0)
+            count++;
+
+        }
+        if(count==1)
+        printf("%d ",i);
+    }
+}
+    
+7. Write a function to print first N terms of Fibonacci series (TSRN)
+#include<stdio.h>
+void fibo(int);
+int main()
+{
+    int n;
+    printf("\n enter a num");
+    scanf("%d",&n);
+    fibo(n);
+    return 0;
+
+}
+void fibo(int n)
+{
+    int a=0,b=1,c,i;
+    printf("%d %d ",a,b);
+    for(i=3;i<=n;i++)
+    {
+        c=a+b;
+        printf("%d ",c);
+        a=b;
+        b=c;
+    
+    }
+}
+
+8. Write a function to print PASCAL Triangle. (TSRN)
+#include<stdio.h>
+void pascaltriangle(int);
+int main()
+{
+    int n;
+    printf("\n enter a num");
+    scanf("%d",&n);
+    pascaltriangle(n);
+    return 0;
+
+}
+void pascaltriangle(int n)
+{
+    int i,space,j,coef=1;
+    for(i=0;i<n;i++)
+    {
+        for(space=1;space<=n-i;space++)
+        printf(" ");
+
+        for(j=0;j<=i;j++)
+        {
+            if(j==0 || i==0)
+            coef=1;
+            else
+            coef=coef*(i-j+1)/j;
+            printf("%d ",coef);
+        }
+        printf("\n\n");
+    }
+    
+}
+
+9. Write a program in C to find the square of any number using the function.
+#include<stdio.h>
+int square(int);
+int main()
+{
+    int n;
+    printf("\n enter a num");
+    scanf("%d",&n);
+    printf("\n square of %d is %d",n,square(n));
+    return 0;
+
+}
+int square(int n)
+{
+    return n*n;
+    
+}
+
+10. Write a program in C to find the sum of the series 1! /1+2!/2+3!/3+4!/4+5!/5 using the 
+function
+#include<stdio.h>
+int fact(int);
+int main()
+{
+    int i;
+    float sum=0;
+    for(i=1;i<=5;i++)
+    sum=sum+(fact(i)/i);
+    printf("\n sum of series is %.2f",sum);
+    return 0;
+
+}
+int fact(int n)
+{
+    int f=1,i;
+    for(i=1;i<=n;i++)
+    f=f*i;
+    return f;
+    
+}
