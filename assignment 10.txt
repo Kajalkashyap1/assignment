@@ -1,0 +1,218 @@
+1. Write a function to calculate the area of a circle. (TSRS)
+#include<stdio.h>
+float circle(float);
+int main()
+{
+    float r;
+    printf("\n enter the radius of circle");
+    scanf("%f",&r);
+    printf("\n area of circle=%.2f",circle(r));
+    return 0;
+}
+float circle(float radius)
+{
+    float area=3.14*radius*radius;
+    return area;
+}
+
+2. Write a function to calculate simple interest. (TSRS)
+#include<stdio.h>
+float si(float , float, float);
+int main()
+{
+    float p,r,t;
+    printf("\n enter principle,rate and time");
+    scanf("%f%f%f",&p,&r,&t);
+    printf("\n simple interest=%.2f",si(p,r,t));
+    return 0;
+}
+float si(float p,float r,float t)
+{
+    float x=(p*r*t)/100;
+    return x;
+}
+
+
+3. Write a function to check whether a given number is even or odd. Return 1 if the 
+number is even, otherwise return 0. (TSRS)
+#include<stdio.h>
+int num(int);
+int main()
+{
+    int a,flag;
+    printf("\n enter a num");
+    scanf("%d",&a);
+    flag=num(a);
+    if(flag==1)
+    printf("\n num is even");
+    else
+    printf("\n num is odd");
+    return 0;
+}
+int num(int x)
+{
+    if(x%2==0)
+    return 1;
+    else
+    return 0;
+}
+
+4. Write a function to print first N natural numbers (TSRN)
+#include<stdio.h>
+void num(int );
+int main()
+{
+    int n;
+    printf("\n enter the value of n");
+    scanf("%d",&n);
+    num(n);
+    return 0;
+}
+void num(int n)
+{
+    int i;
+    for(i=1;i<=n;i++)
+    printf("%d ",i);
+}
+
+5. Write a function to print first N odd natural numbers. (TSRN)
+#include<stdio.h>
+void odd(int);
+int main()
+{
+    int n;
+    printf("\n enter the value of n");
+    scanf("%d",&n);
+    odd(n);
+    return 0;
+}
+void odd(int n)
+{
+    int i;
+    for(i=1;i<=2*n;i+=2)
+    printf("%d ",i);
+}
+
+6. Write a function to calculate the factorial of a number. (TSRS)
+#include<stdio.h>
+int fact(int);
+int main()
+{
+    int n;
+    printf("\n enter a num");
+    scanf("%d",&n);
+    printf("\n Factorial of %d is %d",n,fact(n));
+    return 0;
+}
+int fact(int n)
+{
+    int p=1,i;
+    for(i=2;i<=n;i++)
+    p=p*i;
+    return p;
+}
+
+7. Write a function to calculate the number of combinations one can make from n items 
+and r selected at a time. (TSRS)
+#include<stdio.h>
+int fact(int);
+int main()
+{
+    int n,r,ncr;
+    printf("\n enter the value of n,r");
+    scanf("%d%d",&n,&r);
+    ncr=fact(n)/(fact(r)*fact((n-r)));
+    printf("\n combination=%d",ncr);
+    return 0;
+}
+int fact(int x)
+{
+    int f=1,i;
+    for(i=1;i<=x;i++)
+    f=f*i;
+    return f;
+}
+
+8. Write a function to calculate the number of arrangements one can make from n items 
+and r selected at a time. (TSRS)
+#include<stdio.h>
+int fact(int);
+int main()
+{
+    int n,r,npr;
+    printf("\n enter the value of n,r");
+    scanf("%d%d",&n,&r);
+    npr=fact(n)/fact(n-r);
+    printf("\n arrangement=%d",npr);
+    return 0;
+}
+int fact(int x)
+{
+    int f=1,i;
+    for(i=1;i<=x;i++)
+    f=f*i;
+    return f;
+}
+
+9. Write a function to check whether a given number contains a given digit or not. (TSRS)
+#include<stdio.h>
+int num(int,int);
+int main()
+{
+    int x,n,r;
+    printf("\n enter a num and a digit to find");
+    scanf("%d%d",&n,&r);
+    x=num(n,r);
+    if(x==1)
+    printf("\n %d contain %d",n,r);
+    else
+    printf("\n %d does not contain %d",n,r);
+    return 0;
+}
+int num(int n,int r)
+{
+    int d,flag=-1;
+    while(n!=0)
+    {
+        d=n%10;
+        if(d==r)
+        {
+        flag=1;
+        break;
+        }
+        n=n/10;
+        
+    }
+    return flag;
+
+}
+
+10. Write a function to print all prime factors of a given number. For example, if the 
+number is 36 then your result should be 2, 2, 3, 3. (TSRN)
+#include<stdio.h>
+void primefactor(int);
+int main()
+{
+    int n;
+    printf("\n enter a number");
+    scanf("%d",&n);
+    primefactor(n);
+    return 0;
+}
+
+void  primefactor(int n)
+{
+    int i=2;
+    while(n!=1)
+    {
+        if(n%i==0)
+        {
+            printf("%d ",i);
+            n=n/i;
+        }
+        else
+        i++;
+    }
+    
+}
+
